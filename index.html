@@ -1,0 +1,678 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="robots" content="noindex, nofollow" data-publish>
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>English with Alex Sem · наставничество по английскому</title>
+<meta name="description" content="Ваш личный наставник со своей командой. Наставничество по английскому, когда нужен результат, а не очередные уроки.">
+<meta property="og:type" content="website">
+<meta property="og:locale" content="ru_RU">
+<meta property="og:site_name" content="English with Alex Sem">
+<meta property="og:title" content="English with Alex Sem · ваш личный наставник со своей командой">
+<meta property="og:description" content="Мы не продаём занятия английским. Мы помогаем решить конкретную жизненную задачу.">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns=%27http://www.w3.org/2000/svg%27 viewBox=%270 0 32 32%27%3E%3Crect x=%272%27 y=%272%27 width=%2728%27 height=%2728%27 rx=%278%27 fill=%27%2320b8b1%27/%3E%3Ctext x=%2716%27 y=%2721.5%27 text-anchor=%27middle%27 font-family=%27Arial%27 font-weight=%27700%27 font-size=%2713%27 fill=%27%232b2b2b%27%3EAS%3C/text%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&family=Oswald:wght@500;600&display=swap">
+<link rel="stylesheet" href="vibe.css">
+<style>
+  html, body { margin: 0; background: #ffffff; }
+  html { scroll-behavior: smooth; }
+
+  /* ---- тема по ТЗ: тиффани, графит, белый, светло-серый ---------------------- */
+  .v-page {
+    --v-canvas: #ffffff; --v-surface: #f5f5f5;
+    --v-ink: #2b2b2b; --v-ink-soft: #5b6262;            /* 6,3:1 на белом */
+    --v-accent: #20b8b1; --v-accent-ink: #2b2b2b;      /* графит на тиффани 5,8:1 (белый был бы 2,5:1) */
+    --v-accent-deep: #0f7f7a;                          /* мелкий акцентный текст на белом, 4,9:1 */
+    --tif-head: #149a94;                               /* крупные заголовки тиффани на белом, 3,5:1 */
+    --tif-soft: #e3f5f4;                               /* подложки иконок */
+    --graphite: #2b2b2b;
+    --v-font-display: "Oswald", "Arial Narrow", "Segoe UI", sans-serif;
+    --v-font-text: "Montserrat", "Segoe UI", system-ui, sans-serif;
+    --v-display-weight: 600;
+    --v-shadow-color: 43 43 43;
+    --v-e1: 0 1px 2px rgb(var(--v-shadow-color) / .06), 0 8px 24px rgb(var(--v-shadow-color) / .08);
+    --v-e2: 0 2px 6px rgb(var(--v-shadow-color) / .08), 0 24px 56px rgb(var(--v-shadow-color) / .14);
+    --v-radius: 18px;
+    --v-track-tight: 0;
+    --v-t-xs: clamp(0.8125rem, 0.79rem + 0.15vw, 0.85rem);
+    --v-t-sm: clamp(0.875rem, 0.85rem + 0.2vw, 0.95rem);
+  }
+  .v-page .v-display { text-transform: uppercase; line-height: 1.04; }
+  .v-page .v-btn { font-size: var(--v-t-sm); text-transform: uppercase; letter-spacing: .06em; padding: 1.05em 1.7em; }
+  .v-btn svg { width: 1.2em; height: 1.2em; flex: none; }
+  .ico { width: 1.6rem; height: 1.6rem; fill: none; stroke: currentColor; stroke-width: 1.7; stroke-linecap: round; stroke-linejoin: round; flex: none; }
+
+  /* ---- фон: флаг Великобритании по центру экрана, качается на ветру ------------
+          флаг разрезан на полоски (их делает скрипт внизу), каждая качается со сдвигом,
+          у древка меньше, к краю больше; складки – тень, которая бежит вместе с волной */
+  .flag { --flag-img: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 60 30'%3E%3CclipPath id='t'%3E%3Cpath d='M30 15h30v15zv15H0zH0V0zV0h30z'/%3E%3C/clipPath%3E%3Cpath d='M0 0v30h60V0z' fill='%23012169'/%3E%3Cpath d='M0 0l60 30m0-30L0 30' stroke='%23fff' stroke-width='6'/%3E%3Cpath d='M0 0l60 30m0-30L0 30' clip-path='url(%23t)' stroke='%23C8102E' stroke-width='4'/%3E%3Cpath d='M30 0v30M0 15h60' stroke='%23fff' stroke-width='10'/%3E%3Cpath d='M30 0v30M0 15h60' stroke='%23C8102E' stroke-width='6'/%3E%3C/svg%3E");
+    position: fixed; left: 50%; top: 52%; z-index: 0; width: min(52vw, 46rem); aspect-ratio: 2 / 1; transform: translate(-50%, -50%);
+    display: flex; opacity: .11; pointer-events: none; }
+  .flag i { position: relative; flex: 1 0 0; height: 100%; margin-right: -.5px;
+    background: var(--flag-img) no-repeat; background-size: calc(var(--n) * 100%) 100%; background-position: calc(var(--i) * 100% / (var(--n) - 1)) 0;
+    --amp: calc(1px + var(--i) * .32px); animation: flag-wave 3.6s ease-in-out infinite; animation-delay: calc(var(--i) * -.09s); }
+  .flag i::after { content: ""; position: absolute; inset: 0; background: #000; opacity: 0; animation: flag-fold 3.6s ease-in-out infinite; animation-delay: calc(var(--i) * -.09s - .9s); }
+  @keyframes flag-wave { 0%, 100% { transform: translateY(calc(var(--amp) * -1)); } 50% { transform: translateY(var(--amp)); } }
+  @keyframes flag-fold { 0%, 100% { opacity: 0; } 50% { opacity: .22; } }
+  @media (max-width: 860px) { .flag { width: 88vw; opacity: .12; } .flag i { --amp: calc(.6px + var(--i) * .2px); } }
+  @media (prefers-reduced-motion: reduce) { .flag i, .flag i::after { animation: none; } }
+  .v-page main, .v-page .site-foot { position: relative; z-index: 1; }
+
+  /* ---- шапка: логотип слева, надпись по центру, бургер справа ---------------- */
+  .bar { position: fixed; inset: 0 0 auto 0; z-index: 30; display: grid; grid-template-columns: 1fr auto 1fr; align-items: center; gap: var(--v-4);
+    padding: var(--v-3) var(--v-gutter); background: rgb(255 255 255 / .9); -webkit-backdrop-filter: blur(12px); backdrop-filter: blur(12px); border-bottom: 1px solid var(--v-hair); }
+  .logo { justify-self: start; display: inline-grid; place-items: center; width: 2.6rem; height: 2.6rem; border-radius: 12px; background: var(--v-accent); color: var(--graphite); font-family: var(--v-font-display); font-weight: 600; font-size: 1.05rem; letter-spacing: .04em; text-decoration: none; }
+  .bar__title { font-weight: 600; font-size: var(--v-t-sm); letter-spacing: .02em; white-space: nowrap; text-decoration: none; }
+  .burger { justify-self: end; width: 2.75rem; height: 2.75rem; border-radius: 12px; display: grid; place-items: center; transition: background-color .16s var(--v-ease-out); }
+  .burger span { display: block; width: 1.4rem; height: 2px; background: var(--v-ink); border-radius: 2px; box-shadow: 0 -7px 0 var(--v-ink), 0 7px 0 var(--v-ink); transition: transform .2s var(--v-ease-out), box-shadow .2s var(--v-ease-out); }
+  .burger[aria-expanded="true"] span { transform: rotate(45deg); box-shadow: 0 0 0 var(--v-ink), 0 0 0 var(--v-ink); }
+  .burger[aria-expanded="true"] span::after { content: ""; display: block; width: 100%; height: 2px; background: var(--v-ink); transform: rotate(-90deg); }
+  @media (hover: hover) and (pointer: fine) { .burger:hover { background: var(--v-surface); } }
+  .menu { position: fixed; z-index: 29; top: 4.1rem; right: var(--v-gutter); width: min(22rem, calc(100vw - 2 * var(--v-gutter))); background: #fff; border-radius: var(--v-radius); box-shadow: var(--v-e2); padding: var(--v-3);
+    opacity: 0; transform: translateY(-8px); pointer-events: none; transition: opacity .2s var(--v-ease-out), transform .2s var(--v-ease-out); }
+  .menu.is-open { opacity: 1; transform: none; pointer-events: auto; }
+  .menu a { display: flex; gap: var(--v-3); align-items: baseline; padding: .62em .8em; border-radius: 10px; text-decoration: none; font-size: var(--v-t-sm); font-weight: 500; }
+  .menu a small { font-family: var(--v-font-display); color: var(--v-accent-deep); font-size: .85em; min-width: 1.4em; }
+  @media (hover: hover) and (pointer: fine) { .menu a:hover { background: var(--tif-soft); } }
+
+  /* ---- 1 · первый экран: оффер слева, картинка справа ------------------------- */
+  .hero { height: 100%; display: grid; grid-template-columns: minmax(0, .92fr) minmax(0, 1.08fr); gap: var(--v-7); align-items: center; padding: 5.4rem var(--v-gutter) 2.2rem; }
+  .hero__label { display: inline-flex; align-items: center; gap: .7em; font-size: var(--v-t-xs); font-weight: 600; letter-spacing: var(--v-track-wide); text-transform: uppercase; margin-bottom: var(--v-4); }
+  .hero__label::before { content: ""; width: 1.6rem; height: 2px; background: var(--v-accent); }
+  .hero h1 { font-size: clamp(2.6rem, 1rem + 3.7vw, 5.1rem); line-height: .98; color: var(--tif-head); }
+  .hero .v-lede { margin-top: var(--v-5); font-weight: 500; }
+  .v-page .perks { margin-top: var(--v-6); display: grid; grid-template-columns: 1fr 1fr; gap: var(--v-4) var(--v-5); max-width: 36rem; }
+  .perks a { display: grid; grid-template-columns: auto 1fr; gap: var(--v-3); align-items: center; text-decoration: none; font-size: var(--v-t-sm); font-weight: 500; line-height: 1.3; }
+  .perks i { display: grid; place-items: center; width: 3rem; height: 3rem; border-radius: 50%; background: var(--tif-soft); color: var(--v-accent-deep); transition: background-color .16s var(--v-ease-out), color .16s var(--v-ease-out); }
+  @media (hover: hover) and (pointer: fine) { .perks a:hover i { background: var(--v-accent); color: var(--graphite); } .perks a:hover span { text-decoration: underline; text-underline-offset: .2em; } }
+  .hero__cta { margin-top: var(--v-6); }
+  .hero__art { position: relative; height: min(76svh, 48rem); border-radius: 28px; overflow: hidden; box-shadow: var(--v-e2); background: #e9f6f5; }
+  .hero__art svg { position: absolute; inset: 0; width: 100%; height: 100%; }
+  @media (min-width: 861px) and (max-height: 780px) {
+    .hero h1 { font-size: clamp(2.3rem, .9rem + 3.2vw, 4.2rem); }
+    .v-page .perks { margin-top: var(--v-5); } .hero__cta { margin-top: var(--v-5); }
+  }
+  @media (max-width: 860px) {
+    .hero { grid-template-columns: 1fr; grid-template-rows: auto minmax(0, 1fr); gap: var(--v-4); padding: 4.7rem var(--v-gutter) 1rem; align-items: stretch; }
+    .hero__label { margin-bottom: var(--v-2); }
+    .hero h1 { font-size: clamp(2rem, 1.1rem + 4.4vw, 2.7rem); }
+    .hero .v-lede { margin-top: var(--v-2); font-size: var(--v-t-base); }
+    .v-page .perks { margin-top: var(--v-4); gap: var(--v-3); }
+    .perks a { font-size: .875rem; gap: var(--v-2); }
+    .perks i { width: 2.5rem; height: 2.5rem; }
+    .perks .ico { width: 1.35rem; height: 1.35rem; }
+    .hero__cta { margin-top: var(--v-4); }
+    .hero__art { height: 100%; min-height: 9rem; border-radius: 20px; }
+  }
+
+  /* ---- 2 · мы не продаём занятия -------------------------------------------- */
+  .ne h2 { font-size: var(--v-t-3xl); max-width: 18ch; }
+  .ne__top { margin-top: var(--v-7); display: grid; grid-template-columns: minmax(0, .8fr) minmax(0, 1.2fr); gap: var(--v-6) var(--v-8); align-items: center; }
+  .ne__lead { font-size: var(--v-t-lg); font-weight: 500; line-height: 1.4; max-width: 24ch; }
+  .nots { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: var(--v-5); }
+  .not { display: grid; justify-items: center; text-align: center; gap: var(--v-3); font-weight: 600; font-size: var(--v-t-sm); }
+  .not i { position: relative; display: grid; place-items: center; width: 5rem; height: 5rem; border-radius: 50%; background: #fff; box-shadow: var(--v-e1); color: var(--v-ink-soft); }
+  .not .ico { width: 2.4rem; height: 2.4rem; }
+  /* зачёркивание дорисовывается после появления */
+  .not i::after { content: ""; position: absolute; left: 14%; right: 14%; top: 50%; height: 3px; border-radius: 2px; background: var(--v-accent); transform: rotate(-38deg) scaleX(0); transition: transform .5s var(--v-ease-out); transition-delay: calc(.55s + var(--v-i, 0) * .16s); }
+  .nots.v-on .not i::after { transform: rotate(-38deg) scaleX(1); }
+  .ne__task { margin-top: var(--v-8); display: grid; grid-template-columns: minmax(0, .8fr) minmax(0, 1.2fr); gap: var(--v-4) var(--v-8); align-items: start; }
+  .ne__task b { font-family: var(--v-font-display); font-weight: 600; text-transform: uppercase; font-size: var(--v-t-xl); line-height: 1.1; color: var(--v-ink); }
+  .ne__task b em { font-style: normal; color: var(--tif-head); }
+  .ne__task p { font-size: var(--v-t-lg); line-height: 1.5; max-width: 46ch; text-wrap: pretty; }
+  .v-page .roles { margin-top: var(--v-7); display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: var(--v-5); }
+  .role { border-radius: var(--v-radius); padding: var(--v-6) var(--v-5) var(--v-6); display: flex; flex-direction: column; gap: var(--v-3); box-shadow: var(--v-e1); }
+  .role i { display: grid; place-items: center; width: 3.4rem; height: 3.4rem; border-radius: 50%; margin-bottom: var(--v-2); }
+  .role h3 { font-family: var(--v-font-display); font-weight: 600; text-transform: uppercase; font-size: var(--v-t-xl); line-height: 1.05; letter-spacing: .01em; }
+  .role__duty { font-weight: 700; line-height: 1.35; }
+  .role__do { font-size: var(--v-t-sm); line-height: 1.55; }
+  .role--mentor { background: var(--v-accent); color: var(--graphite); }
+  .role--mentor i { background: rgb(255 255 255 / .35); }
+  .role--method { background: var(--graphite); color: #fff; }
+  .role--method i { background: rgb(32 184 177 / .18); color: var(--v-accent); }
+  .role--method .role__do { color: rgb(255 255 255 / .78); }
+  .role--teacher { background: #fff; }
+  .role--teacher i { background: var(--tif-soft); color: var(--v-accent-deep); }
+  .role--teacher .role__do { color: var(--v-ink-soft); }
+  @media (max-width: 860px) {
+    .ne__top, .ne__task { grid-template-columns: 1fr; }
+    .ne__top { margin-top: var(--v-5); }
+    .nots { grid-template-columns: 1fr; gap: var(--v-3); }
+    .not { grid-template-columns: auto 1fr; justify-items: start; text-align: left; align-items: center; gap: var(--v-4); font-size: var(--v-t-base); }
+    .not i { width: 3.6rem; height: 3.6rem; } .not .ico { width: 1.9rem; height: 1.9rem; }
+    .ne__task { margin-top: var(--v-7); }
+    .v-page .roles { grid-template-columns: 1fr; gap: var(--v-4); }
+  }
+
+  /* ---- 3 · решения для ваших задач: тёмный блок, шторка снизу ----------------- */
+  .dark { background: var(--graphite); color: #fff; border-radius: 32px; margin-inline: clamp(.5rem, 1.6vw, 1.5rem); padding-block: clamp(4rem, 8vw, 7rem); }
+  .sol__head { text-align: center; }
+  .sol__head h2 { font-size: var(--v-t-3xl); line-height: 1; }
+  .sol__head h2 span { display: block; color: var(--v-accent); }
+  .quote { margin: var(--v-7) auto 0; max-width: 40rem; text-align: center; position: relative; padding-inline: clamp(2.2rem, 5vw, 4rem); }
+  .quote::before, .quote::after { position: absolute; font-family: var(--v-font-display); font-size: clamp(3.5rem, 2rem + 4vw, 6rem); line-height: 1; color: var(--v-accent); }
+  .quote::before { content: "\201C"; left: 0; top: -.25em; }
+  .quote::after { content: "\201D"; right: 0; bottom: -.15em; }
+  .quote p { font-size: var(--v-t-lg); line-height: 1.45; font-weight: 500; text-wrap: balance; }
+  .quote cite { display: block; margin-top: var(--v-4); font-style: normal; font-family: var(--v-font-display); letter-spacing: .2em; text-transform: uppercase; color: var(--v-accent); font-size: var(--v-t-sm); }
+  .v-page .goals { margin-top: var(--v-8); display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: var(--v-5); }
+  .goal { background: #fff; color: var(--graphite); border-radius: var(--v-radius); padding: var(--v-5); display: flex; flex-direction: column; gap: var(--v-3); }
+  .goal__num { font-family: var(--v-font-display); font-weight: 600; font-size: var(--v-t-xl); color: var(--tif-head); line-height: 1; }
+  .goal svg { width: 100%; height: auto; aspect-ratio: 3 / 2; border-radius: 12px; background: #f5f5f5; }
+  .goal h3 { font-family: var(--v-font-display); font-weight: 600; text-transform: uppercase; font-size: var(--v-t-lg); letter-spacing: .02em; margin-top: var(--v-2); }
+  .goal p { font-size: var(--v-t-sm); line-height: 1.5; color: var(--v-ink-soft); }
+  .sol__after { margin-top: var(--v-8); display: grid; justify-items: center; text-align: center; gap: var(--v-4); }
+  .sol__after b { font-family: var(--v-font-display); font-weight: 600; text-transform: uppercase; font-size: var(--v-t-xl); line-height: 1.12; max-width: 26ch; }
+  .sol__after b em { font-style: normal; color: var(--v-accent); }
+  .sol__after p { font-size: var(--v-t-lg); color: rgb(255 255 255 / .82); }
+  .sol__after .v-btn { margin-top: var(--v-3); }
+  .sol__after small { font-size: var(--v-t-sm); color: rgb(255 255 255 / .7); letter-spacing: .02em; }
+  @media (max-width: 1040px) { .v-page .goals { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+  @media (max-width: 860px) {
+    .dark { border-radius: 22px; }
+    .quote { margin-top: var(--v-6); }
+    .v-page .goals { margin-top: var(--v-7); gap: var(--v-3); }
+    .goal { padding: var(--v-4); }
+    .goal h3 { font-size: var(--v-t-base); }
+    .sol__after { margin-top: var(--v-7); }
+    .sol__after .v-btn { white-space: normal; text-align: center; justify-content: center; }
+  }
+  @media (max-width: 420px) { .v-page .goals { grid-template-columns: 1fr; } .goal { display: grid; grid-template-columns: 6.5rem 1fr; grid-template-rows: auto auto auto; column-gap: var(--v-4); row-gap: var(--v-1); align-items: start; }
+    .goal svg { grid-column: 1; grid-row: 1 / span 3; } .goal__num { font-size: var(--v-t-lg); } .goal h3 { margin-top: 0; } }
+
+  /* ---- 4 · давайте знакомиться: лента команды по скроллу --------------------- */
+  .team { height: 100%; display: flex; flex-direction: column; justify-content: center; gap: var(--v-5); padding: 4.8rem 0 1.6rem; }
+  .team__head { padding-inline: var(--v-gutter); display: flex; flex-wrap: wrap; align-items: end; justify-content: space-between; gap: var(--v-3) var(--v-6); }
+  .team__head h2 { font-size: var(--v-t-2xl); }
+  .legend { display: flex; flex-wrap: wrap; gap: var(--v-2) var(--v-5); font-size: var(--v-t-xs); font-weight: 600; text-transform: uppercase; letter-spacing: .06em; }
+  .legend span { display: inline-flex; align-items: center; gap: .5em; }
+  .legend span::before { content: ""; width: .7rem; height: .7rem; border-radius: 50%; background: var(--c); box-shadow: inset 0 0 0 1.5px var(--b, transparent); }
+  .rail { padding-inline: var(--v-gutter); align-items: stretch; gap: clamp(1rem, 1.6vw, 1.5rem); }
+  .tc { flex: none; width: clamp(17rem, 21vw, 20rem); border-radius: var(--v-radius); overflow: hidden; background: #fff; box-shadow: var(--v-e1); display: flex; flex-direction: column; }
+  .tc__ph { height: clamp(5.5rem, 13svh, 9rem); display: grid; place-items: center; font-family: var(--v-font-display); font-weight: 600; font-size: clamp(2.2rem, 1.6rem + 1.4vw, 3.2rem); letter-spacing: .04em; position: relative; }
+  .tc__ph::after { content: "фото"; position: absolute; right: .8rem; bottom: .6rem; font-family: var(--v-font-text); font-size: .7rem; font-weight: 600; text-transform: uppercase; letter-spacing: .1em; opacity: .55; }
+  .tc__body { padding: var(--v-4) var(--v-4) var(--v-5); display: flex; flex-direction: column; gap: var(--v-2); font-size: .8125rem; line-height: 1.45; }
+  .tc__chip { align-self: flex-start; font-size: .6875rem; font-weight: 700; text-transform: uppercase; letter-spacing: .08em; padding: .35em .8em; border-radius: 999px; }
+  .tc h3 { font-family: var(--v-font-display); font-weight: 600; text-transform: uppercase; font-size: var(--v-t-lg); line-height: 1.05; letter-spacing: .02em; }
+  .tc__lead { font-weight: 600; }
+  .tc__quote { font-style: italic; }
+  .tc ul { display: grid; gap: .3rem; }
+  .tc li { position: relative; padding-left: .95rem; }
+  .tc li::before { content: ""; position: absolute; left: 0; top: .55em; width: .38rem; height: .38rem; border-radius: 50%; background: var(--v-accent); }
+  .tc--mentor { background: var(--v-accent); color: var(--graphite); }
+  .tc--mentor .tc__ph { background: rgb(255 255 255 / .28); }
+  .tc--mentor .tc__chip { background: var(--graphite); color: #fff; }
+  .tc--mentor li::before { background: var(--graphite); }
+  .tc--method .tc__ph { background: var(--graphite); color: var(--v-accent); }
+  .tc--method .tc__ph::after { color: #fff; }
+  .tc--method .tc__chip { background: var(--graphite); color: #fff; }
+  .tc--teacher .tc__ph { background: var(--tif-soft); color: var(--tif-head); }
+  .tc--teacher .tc__chip { background: var(--tif-soft); color: var(--v-accent-deep); }
+  .team__foot { padding-inline: var(--v-gutter); display: flex; flex-wrap: wrap; align-items: center; gap: var(--v-3) var(--v-6); }
+  .arrows { display: flex; gap: var(--v-2); }
+  .arrows button { width: 2.9rem; height: 2.9rem; border-radius: 50%; display: grid; place-items: center; background: #fff; box-shadow: inset 0 0 0 1.5px var(--v-hair-strong); transition: background-color .16s var(--v-ease-out), box-shadow .16s var(--v-ease-out); }
+  .arrows .ico { width: 1.2rem; height: 1.2rem; stroke-width: 2.2; }
+  @media (hover: hover) and (pointer: fine) { .arrows button:hover { background: var(--v-accent); box-shadow: none; } }
+  .team__foot p { font-weight: 600; font-size: var(--v-t-sm); }
+  .team__foot p b { color: var(--v-accent-deep); }
+  @media (min-width: 861px) and (max-height: 820px) { .tc__ph { height: 4.8rem; } .tc__body { font-size: .78rem; gap: .35rem; padding-bottom: var(--v-4); } .team { gap: var(--v-4); } }
+  @media (max-width: 860px) { .tc__chip { font-size: .625rem; letter-spacing: .04em; } }
+  @media (pointer: coarse) {
+    .team { height: auto; padding: 4.6rem 0 var(--v-6); display: flex; }
+    .rail { align-items: stretch; }
+    .tc { width: min(64vw, 19rem); }
+    [data-v-stage] { scroll-padding-inline: var(--v-gutter); }
+  }
+
+  /* ---- подвал ------------------------------------------------------------- */
+  .site-foot { background: var(--graphite); color: #fff; padding: clamp(3.5rem, 7vw, 6rem) 0 var(--v-6); margin-top: var(--v-8); }
+  .foot__motto { font-family: var(--v-font-display); font-weight: 600; text-transform: uppercase; font-size: var(--v-t-3xl); line-height: 1; }
+  .foot__motto span { color: var(--v-accent); display: block; }
+  .foot__grid { margin-top: var(--v-7); display: grid; grid-template-columns: minmax(0, 1.4fr) auto; gap: var(--v-5) var(--v-8); align-items: end; padding-top: var(--v-6); border-top: 1px solid rgb(255 255 255 / .14); }
+  .foot__req { display: grid; gap: var(--v-2); font-size: var(--v-t-xs); color: rgb(255 255 255 / .72); }
+  .foot__req a { color: #fff; font-size: var(--v-t-sm); font-weight: 600; }
+  .socials { display: flex; gap: var(--v-2); flex-wrap: wrap; }
+  .socials a { padding: .6em 1.1em; border-radius: 999px; box-shadow: inset 0 0 0 1.5px rgb(255 255 255 / .28); text-decoration: none; font-size: var(--v-t-sm); font-weight: 600; transition: background-color .16s var(--v-ease-out), color .16s var(--v-ease-out), box-shadow .16s var(--v-ease-out); }
+  @media (hover: hover) and (pointer: fine) { .socials a:hover { background: var(--v-accent); color: var(--graphite); box-shadow: none; } }
+  @media (max-width: 860px) { .foot__grid { grid-template-columns: 1fr; align-items: start; } .site-foot { padding-bottom: 7rem; } }
+
+  /* ---- плашка cookie и подсказка демо --------------------------------------- */
+  .cookie { position: fixed; z-index: 60; left: 50%; bottom: var(--v-4); transform: translateX(-50%); width: min(44rem, calc(100vw - 2 * var(--v-gutter))); display: flex; align-items: center; gap: var(--v-4); padding: var(--v-3) var(--v-3) var(--v-3) var(--v-5); border-radius: 16px; background: var(--graphite); color: #fff; box-shadow: var(--v-e2); font-size: var(--v-t-xs); line-height: 1.45; }
+  .cookie[hidden] { display: none; }
+  .cookie .v-btn { padding: .8em 1.3em; flex: none; background: var(--v-accent); color: var(--graphite); }
+  @media (max-width: 560px) { .cookie { gap: var(--v-3); padding: var(--v-3) var(--v-3) var(--v-3) var(--v-4); font-size: .75rem; line-height: 1.4; bottom: var(--v-3); } .cookie .v-btn { padding: .75em 1em; font-size: .75rem; } }
+  .toast { position: fixed; z-index: 61; left: 50%; top: 5rem; transform: translate(-50%, -8px); padding: .8em 1.3em; border-radius: 999px; background: var(--graphite); color: #fff; font-size: var(--v-t-sm); font-weight: 500; box-shadow: var(--v-e2); opacity: 0; pointer-events: none; transition: opacity .2s var(--v-ease-out), transform .2s var(--v-ease-out); white-space: nowrap; }
+  .toast.is-on { opacity: 1; transform: translate(-50%, 0); }
+</style>
+</head>
+<body>
+<div class="v-page">
+  <span data-v-progress></span>
+  <div class="flag" aria-hidden="true"></div>
+
+  <!-- иконки в одном стиле: тонкая линия, круглые концы -->
+  <svg width="0" height="0" style="position:absolute" aria-hidden="true">
+    <symbol id="i-target" viewBox="0 0 24 24"><circle cx="11" cy="13" r="8"/><circle cx="11" cy="13" r="4.2"/><circle cx="11" cy="13" r=".9" fill="currentColor"/><path d="M11 13l9-9M16.6 4H20v3.4"/></symbol>
+    <symbol id="i-team" viewBox="0 0 24 24"><circle cx="12" cy="7.6" r="3"/><path d="M6.6 20c0-3.2 2.4-5.6 5.4-5.6s5.4 2.4 5.4 5.6"/><circle cx="5" cy="9.8" r="2.1"/><path d="M1.9 18.6c.2-2.3 1.5-4 3.5-4.2"/><circle cx="19" cy="9.8" r="2.1"/><path d="M22.1 18.6c-.2-2.3-1.5-4-3.5-4.2"/></symbol>
+    <symbol id="i-three" viewBox="0 0 24 24"><rect x="3.5" y="5" width="17" height="15.5" rx="2.5"/><path d="M3.5 9.6h17M8 3v4M16 3v4"/><circle cx="8" cy="15" r="1.1" fill="currentColor"/><circle cx="12" cy="15" r="1.1" fill="currentColor"/><circle cx="16" cy="15" r="1.1" fill="currentColor"/></symbol>
+    <symbol id="i-route" viewBox="0 0 24 24"><path d="M15.5 21V3.8"/><path d="M15.5 4.2h5.5l-1.5 2.4 1.5 2.4h-5.5"/><path d="M3 21c2.6-.6 4.2-2.1 4.2-4.1S5.3 13.8 5.3 12s1.6-3.4 4.2-3.4h2.2" stroke-dasharray="1.6 2.6"/><circle cx="3" cy="21" r=".6" fill="currentColor"/></symbol>
+    <symbol id="i-b1" viewBox="0 0 24 24"><rect x="3" y="5.5" width="18" height="13" rx="3"/><text x="12" y="15.6" text-anchor="middle" font-size="7.8" font-family="Oswald, Arial Narrow, sans-serif" font-weight="600" fill="currentColor" stroke="none">B1</text></symbol>
+    <symbol id="i-cert" viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="12.5" rx="1.6"/><path d="M6.8 8h10.4M6.8 11h5.6"/><circle cx="16" cy="15.8" r="2.6"/><path d="M14.7 18.1 14 21.6l2-1 2 1-.7-3.5"/></symbol>
+    <symbol id="i-book" viewBox="0 0 24 24"><path d="M12 6.6C10 5.1 7 4.6 3.5 5.1v13.1c3.5-.5 6.5 0 8.5 1.5 2-1.5 5-2 8.5-1.5V5.1C17 4.6 14 5.1 12 6.6z"/><path d="M12 6.6v13.1M6.2 9.2h3.3M6.2 12h3.3M14.5 9.2h3.3M14.5 12h3.3"/></symbol>
+    <symbol id="i-compass" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M15.6 8.4l-2.1 5.1-5.1 2.1 2.1-5.1z"/><circle cx="12" cy="12" r=".8" fill="currentColor"/></symbol>
+    <symbol id="i-plan" viewBox="0 0 24 24"><rect x="5" y="4.2" width="14" height="16.8" rx="2"/><path d="M9.2 4.2V3h5.6v1.2"/><path d="M8.2 10.2l1.2 1.2 2.2-2.4M8.2 15.4l1.2 1.2 2.2-2.4M13.8 10.2h2.4M13.8 15.4h2.4"/></symbol>
+    <symbol id="i-talk" viewBox="0 0 24 24"><path d="M3.6 5h10.8A1.6 1.6 0 0 1 16 6.6v6a1.6 1.6 0 0 1-1.6 1.6H9.2L5.6 17v-2.8h-2A1.6 1.6 0 0 1 2 12.6v-6A1.6 1.6 0 0 1 3.6 5z"/><path d="M18.6 9.2h1.8a1.6 1.6 0 0 1 1.6 1.6v6a1.6 1.6 0 0 1-1.6 1.6h-1.5V21l-3.4-2.6H12"/><path d="M6 9.6h6"/></symbol>
+    <symbol id="i-arrow" viewBox="0 0 24 24"><path d="M4 12h15M13.5 6.5 19 12l-5.5 5.5"/></symbol>
+    <symbol id="i-prev" viewBox="0 0 24 24"><path d="M14.5 5.5 8 12l6.5 6.5"/></symbol>
+    <symbol id="i-next" viewBox="0 0 24 24"><path d="M9.5 5.5 16 12l-6.5 6.5"/></symbol>
+  </svg>
+
+  <header class="bar">
+    <a class="logo" href="#top" aria-label="English with Alex Sem – наверх">AS</a>
+    <a class="bar__title" href="#top">English with Alex Sem</a>
+    <button class="burger" type="button" aria-expanded="false" aria-controls="menu" aria-label="Меню"><span></span></button>
+  </header>
+  <nav class="menu" id="menu" aria-label="Разделы">
+    <a href="#podhod"><small>01</small>Мы не продаём занятия</a>
+    <a href="#resheniya"><small>02</small>Решения для ваших задач</a>
+    <a href="#komanda"><small>03</small>Давайте знакомиться</a>
+    <a href="#keysy"><small>04</small>Кейсы клиентов</a>
+    <a href="#svoboda"><small>05</small>Сколько стоит свобода?</a>
+    <a href="#zapis"><small>06</small>С чего начать?</a>
+    <a href="#otzyvy"><small>07</small>Отзывы клиентов</a>
+    <a href="#bonus"><small>08</small>Бонус</a>
+    <a href="#faq"><small>09</small>Частые вопросы</a>
+  </nav>
+
+  <main>
+
+    <!-- 1 · ПЕРВЫЙ ЭКРАН. Картинка справа – заглушка: заказчик даст файл из прототипа -->
+    <section id="top" data-v-act="pin" data-v-span="1.35" aria-label="Ваш личный наставник со своей командой">
+      <div data-v-stage>
+        <div class="hero">
+          <div class="hero__copy" data-v-cue="0 0.85 0">
+            <p class="hero__label">Английский язык</p>
+            <h1 class="v-display" data-v-kinetic="words">Ваш личный наставник со своей командой</h1>
+            <p class="v-lede">Когда нужен результат, а не очередные уроки</p>
+            <ul class="perks">
+              <li><a href="#resheniya"><i><svg class="ico"><use href="#i-target"/></svg></i><span>Индивидуально под вашу цель</span></a></li>
+              <li><a href="#komanda"><i><svg class="ico"><use href="#i-team"/></svg></i><span>На вас работает команда</span></a></li>
+              <li><a href="#svoboda"><i><svg class="ico"><use href="#i-three"/></svg></i><span>3 пробных занятия</span></a></li>
+              <li><a href="#svoboda"><i><svg class="ico"><use href="#i-route"/></svg></i><span>Сопровождение до достижения цели (и даже после)</span></a></li>
+            </ul>
+            <div class="hero__cta">
+              <a class="v-btn" href="#zapis" data-v-magnet="0.2">Записаться <svg class="ico"><use href="#i-arrow"/></svg></a>
+            </div>
+          </div>
+
+          <figure class="hero__art" data-v-parallax="-0.5" aria-label="Иллюстрация: дорога к флагу «Ваша цель» на фоне города">
+            <svg viewBox="0 0 800 700" preserveAspectRatio="xMidYMax slice" aria-hidden="true">
+              <defs>
+                <linearGradient id="sky" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#cdeeeb"/><stop offset=".64" stop-color="#f3fbfa"/><stop offset="1" stop-color="#ffffff"/></linearGradient>
+                <linearGradient id="road" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#e2e8e8"/><stop offset="1" stop-color="#c3cccc"/></linearGradient>
+              </defs>
+              <rect width="800" height="700" fill="url(#sky)"/>
+              <circle cx="610" cy="160" r="74" fill="#ffffff" opacity=".85"/>
+              <path d="M70 150h140a24 24 0 0 0-33-27 32 32 0 0 0-60 4 22 22 0 0 0-47 23z" fill="#fff"/>
+              <path d="M420 110h110a20 20 0 0 0-27-22 27 27 0 0 0-50 3 18 18 0 0 0-33 19z" fill="#fff" opacity=".9"/>
+              <g fill="none" stroke="#6fcac4" stroke-width="2.4" stroke-linecap="round"><path d="M150 240q7-8 14 0q7-8 14 0"/><path d="M190 214q6-7 12 0q6-7 12 0"/></g>
+              <path d="M640 250l46-10 14-14 6 2-8 16 26 6 6-4 4 2-4 8-46 4-12 10-6-1 5-10z" fill="#9adcd7"/>
+              <!-- дальний город -->
+              <g fill="#bfe8e5">
+                <rect x="30" y="330" width="52" height="140"/><rect x="88" y="296" width="40" height="174"/><rect x="134" y="356" width="58" height="114"/>
+                <rect x="212" y="250" width="36" height="220"/><path d="M212 250l18-52 18 52z"/><path d="M228 198v-18" stroke="#bfe8e5" stroke-width="3"/>
+                <rect x="256" y="348" width="64" height="122"/><path d="M332 470l32-246 32 246z"/><rect x="404" y="326" width="48" height="144"/><rect x="458" y="270" width="44" height="200"/>
+                <rect x="532" y="300" width="28" height="170"/><path d="M528 300l18-34 18 34z"/><rect x="632" y="300" width="28" height="170"/><path d="M628 300l18-34 18 34z"/>
+                <rect x="560" y="316" width="72" height="8"/><rect x="560" y="388" width="72" height="10"/>
+                <rect x="684" y="338" width="56" height="132"/><rect x="744" y="288" width="44" height="182"/>
+              </g>
+              <circle cx="230" cy="276" r="9" fill="#ffffff" opacity=".85"/>
+              <!-- ближний ряд -->
+              <g fill="#93d8d3">
+                <rect x="0" y="420" width="70" height="50"/><rect x="74" y="398" width="46" height="72"/><rect x="124" y="430" width="80" height="40"/><rect x="206" y="410" width="54" height="60"/>
+                <rect x="262" y="436" width="96" height="34"/><rect x="442" y="436" width="90" height="34"/><rect x="536" y="404" width="50" height="66"/><rect x="590" y="428" width="76" height="42"/>
+                <rect x="670" y="396" width="54" height="74"/><rect x="728" y="424" width="72" height="46"/>
+              </g>
+              <rect x="0" y="466" width="800" height="234" fill="#f6f9f9"/>
+              <path d="M150 700h500L412 470h-24z" fill="url(#road)"/>
+              <path d="M400 700V476" stroke="#ffffff" stroke-width="5" stroke-dasharray="22 18"/>
+              <path d="M150 700L388 470M650 700L412 470" stroke="#20b8b1" stroke-width="3" opacity=".55"/>
+              <!-- флаг цели на горизонте -->
+              <path d="M400 472V352" stroke="#2b2b2b" stroke-width="3.5" stroke-linecap="round"/>
+              <path d="M401 354h112l-16 22 16 22H401z" fill="#20b8b1"/>
+              <text x="451" y="382" text-anchor="middle" font-family="Oswald, Arial Narrow, sans-serif" font-weight="600" font-size="17" letter-spacing="1.5" fill="#2b2b2b">ВАША ЦЕЛЬ</text>
+            </svg>
+          </figure>
+        </div>
+      </div>
+    </section>
+
+    <!-- 2 · МЫ НЕ ПРОДАЁМ ЗАНЯТИЯ АНГЛИЙСКИМ: три перечёркнутые иконки + три роли -->
+    <section class="v-section" data-v-act="flow" data-v-drift="#f5f5f5" id="podhod" aria-label="Мы не продаём занятия английским">
+      <div class="v-wrap ne">
+        <div data-v-in>
+          <h2 class="v-display">Мы не продаём занятия английским</h2>
+        </div>
+        <div class="ne__top">
+          <p class="ne__lead" data-v-in data-v-in-self>Вам нужен результат, а не очередной курс Английского</p>
+          <ul class="nots" data-v-in data-v-stagger="120">
+            <li class="not" style="--v-i: 0"><i><svg class="ico"><use href="#i-b1"/></svg></i>Не уровень B1</li>
+            <li class="not" style="--v-i: 1"><i><svg class="ico"><use href="#i-cert"/></svg></i>Не сертификат</li>
+            <li class="not" style="--v-i: 2"><i><svg class="ico"><use href="#i-book"/></svg></i>Не знание Present Perfect</li>
+          </ul>
+        </div>
+        <div class="ne__task" data-v-in data-v-stagger="90">
+          <b>Вам нужна возможность <em>решить конкретную жизненную задачу</em></b>
+          <p>На ваш результат работает команда, которая помогает достичь конкретной цели: переезд, работа, международный бизнес, путешествия или жизнь за границей.</p>
+        </div>
+        <ul class="roles" data-v-in data-v-stagger="110">
+          <li class="role role--mentor">
+            <i><svg class="ico"><use href="#i-compass"/></svg></i>
+            <h3>Наставник</h3>
+            <p class="role__duty">Единая точка ответственности за ваш результат</p>
+            <p class="role__do">Формулирует цель, строит стратегию обучения, контролирует прогресс, поддерживает между занятиями и помогает преодолевать сложности на пути к результату</p>
+          </li>
+          <li class="role role--method">
+            <i><svg class="ico"><use href="#i-plan"/></svg></i>
+            <h3>Методист</h3>
+            <p class="role__duty">Соответствие программы вашей цели</p>
+            <p class="role__do">Создаёт индивидуальную программу под вашу цель, подбирает материалы и контролирует соответствие занятий вашим задачам</p>
+          </li>
+          <li class="role role--teacher">
+            <i><svg class="ico"><use href="#i-talk"/></svg></i>
+            <h3>Преподаватель</h3>
+            <p class="role__duty">Ваши навыки в английском</p>
+            <p class="role__do">Проводит занятия, развивает языковые навыки и учит использовать Английский в реальных жизненных и рабочих ситуациях</p>
+          </li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- 3 · У НАС ЕСТЬ РЕШЕНИЕ ДЛЯ ВАШИХ ЗАДАЧ: тёмный блок открывается шторкой снизу -->
+    <section data-v-act="flow" data-v-drift="#ffffff" id="resheniya" aria-label="У нас есть решение для ваших задач">
+      <div class="dark" data-v-reveal="up" data-v-reveal-at="0 0.28">
+        <div class="v-wrap">
+          <div class="sol__head" data-v-in data-v-stagger="120">
+            <h2 class="v-display">У нас есть <span>решение для ваших задач</span></h2>
+            <blockquote class="quote">
+              <p>Английский открывает новые возможности. Мы помогаем ими воспользоваться</p>
+              <cite>Alex Sem</cite>
+            </blockquote>
+          </div>
+          <ul class="goals" data-v-in data-v-stagger="100">
+            <li class="goal" data-v-tilt="4">
+              <span class="goal__num">01</span>
+              <svg viewBox="0 0 120 80" aria-hidden="true" fill="none" stroke="#2b2b2b" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+                <circle cx="44" cy="44" r="23" fill="#d3f0ee" stroke="none"/><circle cx="44" cy="44" r="23"/><path d="M21 44h46M44 21c-8 8-8 38 0 46M44 21c8 8 8 38 0 46M25 33h38M25 55h38"/>
+                <rect x="72" y="38" width="24" height="30" rx="3" fill="#20b8b1"/><path d="M79 38v-5h10v5M78 68v3M90 68v3M84 44v18"/>
+                <path d="M74 18l12-3 4-4h2l-2 5 8 2 2-1 1 1-1 2-13 1-4 3h-2l2-3z" fill="#2b2b2b" stroke="none"/>
+              </svg>
+              <h3>Путешествия</h3>
+              <p>Самостоятельно через 3–4 месяца, без страха, стыда и паники</p>
+            </li>
+            <li class="goal" data-v-tilt="4">
+              <span class="goal__num">02</span>
+              <svg viewBox="0 0 120 80" aria-hidden="true" fill="none" stroke="#2b2b2b" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+                <rect x="20" y="58" width="80" height="5" rx="2" fill="#d3f0ee"/>
+                <circle cx="34" cy="34" r="7"/><path d="M22 58c0-9 5-14 12-14s12 5 12 14"/>
+                <circle cx="86" cy="34" r="7"/><path d="M74 58c0-9 5-14 12-14s12 5 12 14"/>
+                <path d="M46 14h22a4 4 0 0 1 4 4v8a4 4 0 0 1-4 4h-12l-6 5v-5h-4a4 4 0 0 1-4-4v-8a4 4 0 0 1 4-4z" fill="#20b8b1"/>
+                <circle cx="51" cy="22" r="1.4" fill="#2b2b2b" stroke="none"/><circle cx="57" cy="22" r="1.4" fill="#2b2b2b" stroke="none"/><circle cx="63" cy="22" r="1.4" fill="#2b2b2b" stroke="none"/>
+              </svg>
+              <h3>Переговоры</h3>
+              <p>Через 6–8 месяцев, без переводчиков</p>
+            </li>
+            <li class="goal" data-v-tilt="4">
+              <span class="goal__num">03</span>
+              <svg viewBox="0 0 120 80" aria-hidden="true" fill="none" stroke="#2b2b2b" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+                <rect x="20" y="34" width="44" height="32" rx="4" fill="#20b8b1"/><path d="M34 34v-6h16v6M20 46h44M40 44v5"/>
+                <path d="M74 66V50M84 66V42M94 66V32M104 66V22" stroke-width="5" stroke="#d3f0ee"/>
+                <path d="M72 46l12-10 9 6 14-18M100 24h7v7"/>
+              </svg>
+              <h3>Работа</h3>
+              <p>За большие деньги в международной компании или за рубежом</p>
+            </li>
+            <li class="goal" data-v-tilt="4">
+              <span class="goal__num">04</span>
+              <svg viewBox="0 0 120 80" aria-hidden="true" fill="none" stroke="#2b2b2b" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M14 66h92"/>
+                <rect x="22" y="36" width="14" height="30" fill="#d3f0ee"/><rect x="38" y="22" width="12" height="44" fill="#d3f0ee"/><path d="M38 22l6-10 6 10"/><rect x="52" y="40" width="12" height="26" fill="#d3f0ee"/>
+                <path d="M72 48l14-12 14 12v18H72z" fill="#20b8b1"/><path d="M82 66V54h8v12"/>
+                <path d="M66 16l10-2 3-3h2l-2 4 6 1 1-1 1 1-1 1-10 1-3 2h-2l2-2z" fill="#2b2b2b" stroke="none"/>
+              </svg>
+              <h3>Переезд</h3>
+              <p>Жизнь, учёба, работа за рубежом</p>
+            </li>
+          </ul>
+          <div class="sol__after" data-v-in data-v-stagger="90">
+            <b>Наставничество помогает <em>достигать целей с помощью английского</em></b>
+            <p>Мы начинаем не с учебника. Мы начинаем с вашей цели.</p>
+            <a class="v-btn" href="#zapis">Записаться на вводную встречу <svg class="ico"><use href="#i-arrow"/></svg></a>
+            <small>онлайн · бесплатно · без обязательств</small>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 4 · ДАВАЙТЕ ЗНАКОМИТЬСЯ: лента карточек едет по скроллу; на телефоне листается пальцем.
+         Фото – заглушки с инициалами, как в прототипе; настоящие фото – с Яндекс Диска заказчика -->
+    <section data-v-act="pan" data-v-span="2.4" id="komanda" aria-label="Давайте знакомиться">
+      <div data-v-stage>
+        <div class="team">
+          <div class="team__head">
+            <h2 class="v-display">Давайте знакомиться</h2>
+            <p class="legend"><span style="--c: #20b8b1">Наставник</span><span style="--c: #2b2b2b">Методист</span><span style="--c: #e3f5f4; --b: #20b8b1">Преподаватели</span></p>
+          </div>
+          <div class="rail" data-v-pan="0.02">
+            <article class="tc tc--mentor">
+              <div class="tc__ph" aria-hidden="true">AS</div>
+              <div class="tc__body">
+                <span class="tc__chip">Наставник · руководитель</span>
+                <h3>Alex Sem</h3>
+                <p class="tc__lead">Ваш наставник и руководитель команды</p>
+                <p class="tc__quote">Я тоже взрослый и знаю, что после работы нет сил на артикли</p>
+                <ul>
+                  <li>Руководитель и наставник с 20-летним опытом</li>
+                  <li>Более 25 000 часов преподавания</li>
+                  <li>Сотни учеников живут, работают и учатся по всему миру: от Аргентины до Ирландии, от Великобритании до Бали</li>
+                  <li>В прошлом топ-менеджер крупной международной IT-компании</li>
+                  <li>Образование: инженерное, языковое (Лондон), психологическое (МГУ), педагогическое</li>
+                </ul>
+              </div>
+            </article>
+            <article class="tc tc--method">
+              <div class="tc__ph" aria-hidden="true">E</div>
+              <div class="tc__body">
+                <span class="tc__chip">Методист</span>
+                <h3>Elena</h3>
+                <p class="tc__lead">Следит за работой преподавателя: смотрит записи занятий, даёт обратную связь, готовит материалы и отчёты</p>
+                <ul>
+                  <li>3 высших педагогических образования: педагог английского языка, логопед, дирижёр</li>
+                  <li>Опыт преподавания более 15 лет</li>
+                  <li>Работала во всевозможных учебных заведениях (детские сады, школы, колледжи, учебные центры)</li>
+                  <li>Объездила десятки стран, во многих жила подолгу</li>
+                </ul>
+              </div>
+            </article>
+            <article class="tc tc--teacher">
+              <div class="tc__ph" aria-hidden="true">E</div>
+              <div class="tc__body">
+                <span class="tc__chip">Преподаватель</span>
+                <h3>Elizabeth</h3>
+                <ul>
+                  <li>Носитель языка, билингв</li>
+                  <li>Окончила колледж Кертин в Бентли, Австралия</li>
+                  <li>Преподаёт английский более 5 лет</li>
+                  <li>Прошла курсы в тестовом центре TOEFL и Британском Совете</li>
+                  <li>Её студенты получают 7.5+ баллов по IELTS</li>
+                  <li>Жила по всему миру, в том числе 3 года в Австралии</li>
+                </ul>
+              </div>
+            </article>
+            <article class="tc tc--teacher">
+              <div class="tc__ph" aria-hidden="true">A</div>
+              <div class="tc__body">
+                <span class="tc__chip">Преподаватель</span>
+                <h3>Akhmat</h3>
+                <ul>
+                  <li>Степень бакалавра в лингвистике, степень магистра в преподавании</li>
+                  <li>6 лет жил и работал в международных школах и университетах Шанхая и Пекина</li>
+                  <li>Сертификат TESOL (преподавание английского носителям других языков)</li>
+                  <li>8 лет опыта частным репетитором</li>
+                </ul>
+              </div>
+            </article>
+            <article class="tc tc--teacher">
+              <div class="tc__ph" aria-hidden="true">J</div>
+              <div class="tc__body">
+                <span class="tc__chip">Преподаватель</span>
+                <h3>Julia</h3>
+                <ul>
+                  <li>Высшее педагогическое образование (английский и немецкий языки)</li>
+                  <li>Опыт обучения групп до 10 человек в языковых школах</li>
+                  <li>5 лет частным репетитором</li>
+                  <li>Бывший гид для иностранных туристов</li>
+                  <li>Ведёт собственный разговорный клуб английского языка</li>
+                </ul>
+              </div>
+            </article>
+            <article class="tc tc--teacher">
+              <div class="tc__ph" aria-hidden="true">A</div>
+              <div class="tc__body">
+                <span class="tc__chip">Преподаватель</span>
+                <h3>Anfisa</h3>
+                <ul>
+                  <li>Филологическое образование, репетитор английского и немецкого</li>
+                  <li>7 лет школьным учителем, 13 лет частным репетитором</li>
+                  <li>Ученики получают максимальные баллы на ЕГЭ и ОГЭ</li>
+                  <li>Сотрудничала с Международным олимпийским комитетом во время работы в международной девелоперской компании</li>
+                  <li>Мама троих детей</li>
+                </ul>
+              </div>
+            </article>
+            <article class="tc tc--teacher">
+              <div class="tc__ph" aria-hidden="true">S</div>
+              <div class="tc__body">
+                <span class="tc__chip">Преподаватель</span>
+                <h3>Sofia</h3>
+                <ul>
+                  <li>Окончила Московский государственный лингвистический университет</li>
+                  <li>Преподаёт частным репетитором более 5 лет</li>
+                  <li>Училась в Университете Люмьер Лион II во Франции по программе Erasmus+</li>
+                  <li>Работала на курсах подготовки к ЕГЭ в РАНХиГС</li>
+                  <li>Участница TEDx и недели ECOM&amp;Retail</li>
+                  <li>Выступала в постановках оригинальных бродвейских мюзиклов</li>
+                </ul>
+              </div>
+            </article>
+            <article class="tc tc--teacher">
+              <div class="tc__ph" aria-hidden="true">A</div>
+              <div class="tc__body">
+                <span class="tc__chip">Преподаватель</span>
+                <h3>Alex</h3>
+                <ul>
+                  <li>Носитель языка, билингв, преподаёт американский английский</li>
+                  <li>15 лет прожил в США: Хьюстон, Лас-Вегас, Лос-Анджелес</li>
+                  <li>Известный художник, чьи работы находятся в Белом доме и в студии Майкла Джексона</li>
+                  <li>Давал интервью крупнейшим американским каналам, включая ABC News и Fox Business</li>
+                </ul>
+              </div>
+            </article>
+          </div>
+          <div class="team__foot">
+            <div class="arrows">
+              <button type="button" data-dir="-1" aria-label="Предыдущая карточка"><svg class="ico"><use href="#i-prev"/></svg></button>
+              <button type="button" data-dir="1" aria-label="Следующая карточка"><svg class="ico"><use href="#i-next"/></svg></button>
+            </div>
+            <p>Все преподаватели прошли отбор <b>от 30 до 60 человек на место</b></p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ПОДВАЛ: реквизиты и соцсети из ТЗ -->
+  <footer class="site-foot">
+    <div class="v-wrap">
+      <p class="foot__motto">Stop studying English – <span>Start using it</span></p>
+      <div class="foot__grid">
+        <div class="foot__req">
+          <span>© ИП Семин А.А. · ИНН 771683606671 · ОГРНИП 325330000027210</span>
+          <span>Регистрационный номер оператора персональных данных 77-26-554138</span>
+          <a href="mailto:info@alex-sem.ru">info@alex-sem.ru</a>
+        </div>
+        <div class="socials">
+          <a href="https://max.ru/id771683606671_biz" target="_blank" rel="noopener">Макс</a>
+          <a href="https://vk.ru/alexsem_english" target="_blank" rel="noopener">ВК</a>
+          <a href="https://t.me/+7iC6DmMDTSM5MWUy" target="_blank" rel="noopener">Телеграм</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <div class="cookie" role="region" aria-label="Файлы cookie" hidden>
+    <span>Мы используем файлы cookie для улучшения работы сайта. Оставаясь на сайте, вы соглашаетесь с нашей Политикой использования cookie.</span>
+    <button class="v-btn" type="button">Понятно</button>
+  </div>
+  <div class="toast" role="status" aria-live="polite"></div>
+</div>
+
+<script src="vibe.js"></script>
+<script>
+  if (window.matchMedia('(max-width: 860px)').matches) {
+    document.getElementById('top').setAttribute('data-v-span', '1.2');
+  }
+  Vibe.mount(document.querySelector('.v-page'));
+
+  // флаг на фоне: 40 полосок, каждая показывает свой кусок флага и качается со своим сдвигом
+  (function () {
+    var flag = document.querySelector('.flag'), n = 40;
+    flag.style.setProperty('--n', n);
+    for (var i = 0; i < n; i++) { var s = document.createElement('i'); s.style.setProperty('--i', i); flag.appendChild(s); }
+  })();
+
+  (function () {
+    // меню-бургер
+    var btn = document.querySelector('.burger'), menu = document.getElementById('menu');
+    function setMenu(open) { btn.setAttribute('aria-expanded', open); menu.classList.toggle('is-open', open); }
+    btn.addEventListener('click', function () { setMenu(btn.getAttribute('aria-expanded') !== 'true'); });
+    document.addEventListener('keydown', function (e) { if (e.key === 'Escape') setMenu(false); });
+    document.addEventListener('click', function (e) { if (!menu.contains(e.target) && !btn.contains(e.target)) setMenu(false); });
+
+    // демо: якорь на экран, которого ещё нет, – короткая подсказка вместо пустого клика
+    var toast = document.querySelector('.toast'), tt;
+    document.addEventListener('click', function (e) {
+      var a = e.target.closest('a[href^="#"]'); if (!a) return;
+      setMenu(false);
+      if (a.hash.length > 1 && !document.querySelector(a.hash)) {
+        e.preventDefault();
+        toast.textContent = 'Этот экран будет в полной версии сайта';
+        toast.classList.add('is-on'); clearTimeout(tt); tt = setTimeout(function () { toast.classList.remove('is-on'); }, 2200);
+      }
+    });
+
+    // стрелки ленты команды: на тач листают ленту, с мышью – прокручивают страницу на одну карточку
+    var sec = document.getElementById('komanda'), stage = sec.querySelector('[data-v-stage]'), rail = sec.querySelector('.rail');
+    sec.querySelectorAll('.arrows button').forEach(function (b) {
+      b.addEventListener('click', function () {
+        var dir = +b.getAttribute('data-dir'), card = rail.firstElementChild, gap = parseFloat(getComputedStyle(rail).columnGap) || 0;
+        var w = card.getBoundingClientRect().width + gap;
+        if (stage.scrollWidth > stage.clientWidth + 2) { stage.scrollBy({ left: dir * w, behavior: 'smooth' }); return; }
+        var travel = Math.max(rail.scrollWidth - stage.clientWidth, 1), room = sec.offsetHeight - window.innerHeight;
+        window.scrollBy({ top: dir * w / travel * room, behavior: 'smooth' });
+      });
+    });
+
+    // плашка cookie: при первом заходе
+    var ck = document.querySelector('.cookie'), seen = false;
+    try { seen = localStorage.getItem('cookie-ok') === '1'; } catch (e) {}
+    if (!seen) ck.hidden = false;
+    ck.querySelector('button').addEventListener('click', function () { ck.hidden = true; try { localStorage.setItem('cookie-ok', '1'); } catch (e) {} });
+  })();
+</script>
+</body>
+</html>
