@@ -246,6 +246,19 @@
   @media (max-width: 560px) { .cookie { gap: var(--v-3); padding: var(--v-3) var(--v-3) var(--v-3) var(--v-4); font-size: .75rem; line-height: 1.4; bottom: var(--v-3); } .cookie .v-btn { padding: .75em 1em; font-size: .75rem; } }
   .toast { position: fixed; z-index: 61; left: 50%; top: 5rem; transform: translate(-50%, -8px); padding: .8em 1.3em; border-radius: 999px; background: var(--graphite); color: #fff; font-size: var(--v-t-sm); font-weight: 500; box-shadow: var(--v-e2); opacity: 0; pointer-events: none; transition: opacity .2s var(--v-ease-out), transform .2s var(--v-ease-out); white-space: nowrap; }
   .toast.is-on { opacity: 1; transform: translate(-50%, 0); }
+  /* ---- только для демо: плашка заказчику и блок «что дальше». В Тильду не переносятся --- */
+  .v-page .demo-for { display: inline-flex; align-items: center; gap: .65rem; max-width: 100%; margin-bottom: var(--v-5); padding: .3rem 1rem .3rem .3rem; border-radius: 999px; background: var(--graphite); color: #fff; font-size: var(--v-t-xs); font-weight: 500; line-height: 1.3; }
+  .demo-for img { width: 2.2rem; height: 2.2rem; border-radius: 50%; object-fit: cover; flex: none; }
+  .demo-for b { color: var(--v-accent); font-weight: 700; }
+  @media (max-width: 860px) { .v-page .demo-for { margin-bottom: var(--v-3); border-radius: 22px; font-size: .8125rem; padding-right: .9rem; } .demo-for img { width: 2rem; height: 2rem; } }
+  .next { display: grid; grid-template-columns: minmax(0, .9fr) minmax(0, 1.1fr); gap: var(--v-6) var(--v-8); align-items: start; }
+  .next h2 { font-size: var(--v-t-2xl); }
+  .next h2 span { color: var(--tif-head); }
+  .next__head p { margin-top: var(--v-4); font-size: var(--v-t-lg); line-height: 1.45; max-width: 30ch; }
+  .v-page .next__list { margin: 0; padding: 0; list-style: none; display: grid; grid-template-columns: 1fr 1fr; column-gap: var(--v-6); }
+  .next__list li { display: flex; gap: var(--v-4); align-items: baseline; padding: var(--v-4) 0; border-top: 1px solid var(--v-hair-strong); font-weight: 600; }
+  .next__list li small { font-family: var(--v-font-display); font-size: var(--v-t-lg); color: var(--v-accent-deep); min-width: 1.6em; }
+  @media (max-width: 860px) { .next { grid-template-columns: 1fr; } .v-page .next__list { grid-template-columns: 1fr; } }
 </style>
 </head>
 <body>
@@ -276,15 +289,15 @@
     <button class="burger" type="button" aria-expanded="false" aria-controls="menu" aria-label="Меню"><span></span></button>
   </header>
   <nav class="menu" id="menu" aria-label="Разделы">
-    <a href="#podhod"><small>01</small>Мы не продаём занятия</a>
-    <a href="#resheniya"><small>02</small>Решения для ваших задач</a>
-    <a href="#komanda"><small>03</small>Давайте знакомиться</a>
-    <a href="#keysy"><small>04</small>Кейсы клиентов</a>
-    <a href="#svoboda"><small>05</small>Сколько стоит свобода?</a>
-    <a href="#zapis"><small>06</small>С чего начать?</a>
-    <a href="#otzyvy"><small>07</small>Отзывы клиентов</a>
-    <a href="#bonus"><small>08</small>Бонус</a>
-    <a href="#faq"><small>09</small>Частые вопросы</a>
+    <a href="#podhod"><small>02</small>Мы не продаём занятия</a>
+    <a href="#resheniya"><small>03</small>Решения для ваших задач</a>
+    <a href="#komanda"><small>04</small>Давайте знакомиться</a>
+    <a href="#keysy"><small>05</small>Кейсы клиентов</a>
+    <a href="#svoboda"><small>06</small>Сколько стоит свобода?</a>
+    <a href="#zapis"><small>07</small>С чего начать?</a>
+    <a href="#otzyvy"><small>08</small>Отзывы клиентов</a>
+    <a href="#bonus"><small>09</small>Бонус</a>
+    <a href="#faq"><small>10</small>Частые вопросы</a>
   </nav>
 
   <main>
@@ -294,6 +307,7 @@
       <div data-v-stage>
         <div class="hero">
           <div class="hero__copy" data-v-cue="0 0.85 0">
+            <p class="demo-for"><img src="assets/zakazchik.jpg" alt="" width="160" height="160"><span><b>Демо-сайт для English with Alex Sem</b> · первые 4 экрана из 10</span></p>
             <p class="hero__label">Английский язык</p>
             <h1 class="v-display" data-v-kinetic="words">Ваш личный наставник со своей командой</h1>
             <p class="v-lede">Когда нужен результат, а не очередные уроки</p>
@@ -590,6 +604,23 @@
             <p>Все преподаватели прошли отбор <b>от 30 до 60 человек на место</b></p>
           </div>
         </div>
+      </div>
+    </section>
+    <!-- ТОЛЬКО ДЕМО: что будет дальше по ТЗ. Убрать при сборке полной версии -->
+    <section class="v-section" data-v-act="flow" id="demo-next" aria-label="Это демо">
+      <div class="v-wrap next">
+        <div class="next__head" data-v-in data-v-stagger="90">
+          <h2 class="v-display">Это демо: <span>готовы экраны 1–4</span></h2>
+          <p>Дальше по ТЗ ещё 6 экранов. Соберу их в том же стиле, все правки – на этой же ссылке.</p>
+        </div>
+        <ol class="next__list" data-v-in data-v-stagger="60">
+          <li><small>05</small>Кейсы клиентов</li>
+          <li><small>06</small>Сколько стоит свобода?</li>
+          <li><small>07</small>С чего начать? Форма записи</li>
+          <li><small>08</small>Отзывы клиентов</li>
+          <li><small>09</small>Бонус: гайды за подписку</li>
+          <li><small>10</small>Частые вопросы</li>
+        </ol>
       </div>
     </section>
 
