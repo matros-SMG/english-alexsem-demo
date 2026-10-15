@@ -248,9 +248,9 @@
   .toast.is-on { opacity: 1; transform: translate(-50%, 0); }
   /* ---- только для демо: плашка заказчику и блок «что дальше». В Тильду не переносятся --- */
   .v-page .demo-for { display: inline-flex; align-items: center; gap: .65rem; max-width: 100%; margin-bottom: var(--v-5); padding: .3rem 1rem .3rem .3rem; border-radius: 999px; background: var(--graphite); color: #fff; font-size: var(--v-t-xs); font-weight: 500; line-height: 1.3; }
-  .demo-for img { width: 2.2rem; height: 2.2rem; border-radius: 50%; object-fit: cover; flex: none; }
+  .demo-for i { display: grid; place-items: center; width: 2.2rem; height: 2.2rem; border-radius: 50%; flex: none; background: var(--v-accent); color: var(--graphite); font-family: var(--v-font-display); font-style: normal; font-weight: 600; font-size: .85rem; letter-spacing: .04em; }
   .demo-for b { color: var(--v-accent); font-weight: 700; }
-  @media (max-width: 860px) { .v-page .demo-for { margin-bottom: var(--v-3); border-radius: 22px; font-size: .8125rem; padding-right: .9rem; } .demo-for img { width: 2rem; height: 2rem; } }
+  @media (max-width: 860px) { .v-page .demo-for { margin-bottom: var(--v-3); border-radius: 22px; font-size: .8125rem; padding-right: .9rem; } .demo-for i { width: 2rem; height: 2rem; } }
   .next { display: grid; grid-template-columns: minmax(0, .9fr) minmax(0, 1.1fr); gap: var(--v-6) var(--v-8); align-items: start; }
   .next h2 { font-size: var(--v-t-2xl); }
   .next h2 span { color: var(--tif-head); }
@@ -307,7 +307,7 @@
       <div data-v-stage>
         <div class="hero">
           <div class="hero__copy" data-v-cue="0 0.85 0">
-            <p class="demo-for"><img src="assets/zakazchik.jpg" alt="" width="160" height="160"><span><b>Демо-сайт для English with Alex Sem</b> · первые 4 экрана из 10</span></p>
+            <p class="demo-for"><i aria-hidden="true">AS</i><span><b>Демо-сайт для English with Alex Sem</b> · первые 4 экрана из 10</span></p>
             <p class="hero__label">Английский язык</p>
             <h1 class="v-display" data-v-kinetic="words">Ваш личный наставник со своей командой</h1>
             <p class="v-lede">Когда нужен результат, а не очередные уроки</p>
